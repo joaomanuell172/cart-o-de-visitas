@@ -1,121 +1,144 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* Configurações de Cores e Fontes */
+:root {
+    --cyan: #00e5ff;
+    --wpp: #25d366;
+    --dark-bg: #020b10;
+    --glass: rgba(255, 255, 255, 0.03);
 }
 
-/* Fundo da página */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-    background-color: #0f172a; /* Azul escuro tecnológico */
+    background-color: var(--dark-bg);
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    color: #e2e8f0;
-    padding: 20px;
 }
 
-/* Container principal do cartão */
-.card {
-    background-color: #1e293b;
-    width: 100%;
-    max-width: 400px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    padding: 40px 30px;
-    text-align: center;
-    border-top: 5px solid #38bdf8; /* Detalhe em azul claro */
+/* Fundo Tecnológico */
+.bg-glow {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, #05232d 0%, #020b10 100%);
+    z-index: -1;
 }
 
-/* Cabeçalho */
-.header h1 {
-    color: #f8fafc;
-    font-size: 28px;
-    margin-bottom: 5px;
+/* Container de Vidro */
+.glass-container {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    width: 95%;
+    max-width: 1100px;
+    padding: 50px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
-.header p {
-    color: #94a3b8;
-    font-size: 14px;
-    margin-bottom: 25px;
+header { text-align: center; margin-bottom: 40px; }
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    letter-spacing: 6px;
+    text-shadow: 0 0 20px var(--cyan);
 }
 
-/* Sessão de serviços */
-.services {
-    background-color: #0f172a;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 25px;
-    text-align: left;
+.subtitle {
+    color: var(--cyan);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 2px solid var(--cyan);
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-.services h3 {
-    color: #38bdf8;
-    font-size: 16px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.services ul {
-    list-style-type: none;
-}
-
-.services li {
-    font-size: 14px;
-    margin-bottom: 8px;
-    display: flex;
+/* Layout em Grid (Puxando para o lado) */
+.main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
     align-items: center;
 }
 
-/* Ícone de check antes de cada serviço */
-.services li::before {
-    content: '✓';
-    color: #10b981; /* Verde */
-    margin-right: 10px;
-    font-weight: bold;
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas de serviços */
+    gap: 15px;
 }
 
-/* Informações de contato */
-.contact-info {
-    font-size: 14px;
-    color: #cbd5e1;
-    margin-bottom: 25px;
-    line-height: 1.6;
+.service-column .item {
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    border-left: 4px solid var(--cyan);
+    transition: 0.3s;
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
-/* Botão do WhatsApp */
-.btn-whatsapp {
-    display: inline-block;
-    width: 100%;
-    background-color: #25d366; /* Cor oficial do WhatsApp */
-    color: #ffffff;
+.service-column .item:hover {
+    transform: scale(1.03);
+    background: rgba(0, 229, 255, 0.1);
+}
+
+.service-column i { color: var(--cyan); margin-right: 12px; }
+
+/* Ícone Visual */
+.tech-icon {
+    font-size: 140px;
+    color: var(--cyan);
+    text-align: center;
+    filter: drop-shadow(0 0 30px rgba(0, 229, 255, 0.4));
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+/* Rodapé de Contatos */
+.footer {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.social-buttons { display: flex; gap: 15px; }
+
+.btn-insta, .btn-wpp {
+    padding: 12px 25px;
+    border-radius: 50px;
     text-decoration: none;
-    padding: 14px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
 }
 
-.btn-whatsapp:hover {
-    background-color: #20bd5a;
-    transform: translateY(-2px);
-}
+.btn-insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+.btn-wpp { background-color: var(--wpp); }
 
-/* Ícones sociais (opcional) */
-.social-links {
-    margin-top: 20px;
-}
+.btn-insta:hover, .btn-wpp:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
-.social-links a {
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 14px;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-}
+.phone-display { font-size: 1.2rem; font-weight: 700; color: var(--cyan); }
 
-.social-links a:hover {
-    color: #38bdf8;
+/* Ajuste para Celular */
+@media (max-width: 850px) {
+    .main-content { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .visual-side { display: none; }
+    .footer { flex-direction: column; text-align: center; }
 }
