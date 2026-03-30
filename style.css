@@ -1,63 +1,58 @@
-/* Configurações de Cores e Fontes */
 :root {
     --cyan: #00e5ff;
+    --dark: #01080b;
     --wpp: #25d366;
-    --dark-bg: #020b10;
-    --glass: rgba(255, 255, 255, 0.03);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    background-color: var(--dark-bg);
+    background-color: var(--dark);
     font-family: 'Poppins', sans-serif;
     color: white;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
-/* Fundo Tecnológico */
 .bg-glow {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at 50% 50%, #05232d 0%, #020b10 100%);
+    background: radial-gradient(circle at 50% 50%, #051a24 0%, #01080b 100%);
     z-index: -1;
 }
 
-/* Container de Vidro */
 .glass-container {
-    background: var(--glass);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 30px;
-    width: 95%;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 20px;
+    width: 100%;
     max-width: 1100px;
-    padding: 50px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
 }
 
 header { text-align: center; margin-bottom: 40px; }
 
 .logo {
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(2rem, 5vw, 3.5rem);
     letter-spacing: 6px;
-    text-shadow: 0 0 20px var(--cyan);
+    text-shadow: 0 0 15px var(--cyan);
 }
 
-.subtitle {
-    color: var(--cyan);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    border-bottom: 2px solid var(--cyan);
+.subtitle-wrapper {
     display: inline-block;
-    padding-bottom: 5px;
+    border-bottom: 2px solid var(--cyan);
+    padding: 0 20px 5px;
 }
 
-/* Layout em Grid (Puxando para o lado) */
+.subtitle { color: var(--cyan); font-weight: 600; text-transform: uppercase; letter-spacing: 3px; }
+
+/* Grid Alinhado para dois serviços lado a lado */
 .main-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -67,46 +62,54 @@ header { text-align: center; margin-bottom: 40px; }
 
 .services-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Duas colunas de serviços */
-    gap: 15px;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
-.service-column .item {
-    background: rgba(255, 255, 255, 0.05);
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 12px;
+.category-box h3 {
+    font-size: 1.1rem;
+    color: var(--cyan);
+    margin-bottom: 15px;
+    text-transform: uppercase;
     display: flex;
     align-items: center;
-    border-left: 4px solid var(--cyan);
+    gap: 10px;
+}
+
+.category-box .item {
+    background: rgba(255, 255, 255, 0.04);
+    margin-bottom: 8px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border-left: 3px solid transparent;
     transition: 0.3s;
-    font-size: 0.95rem;
-    font-weight: 600;
 }
 
-.service-column .item:hover {
-    transform: scale(1.03);
+.category-box .item:hover {
+    border-left: 3px solid var(--cyan);
     background: rgba(0, 229, 255, 0.1);
+    transform: translateX(5px);
 }
 
-.service-column i { color: var(--cyan); margin-right: 12px; }
+.visual-section { text-align: center; }
 
-/* Ícone Visual */
-.tech-icon {
-    font-size: 140px;
+.main-icon {
+    font-size: 120px;
     color: var(--cyan);
-    text-align: center;
-    filter: drop-shadow(0 0 30px rgba(0, 229, 255, 0.4));
+    filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.3));
     animation: float 4s ease-in-out infinite;
 }
 
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-/* Rodapé de Contatos */
 .footer {
     margin-top: 40px;
-    padding-top: 30px;
+    padding-top: 25px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -114,31 +117,25 @@ header { text-align: center; margin-bottom: 40px; }
     gap: 20px;
 }
 
-.social-buttons { display: flex; gap: 15px; }
-
-.btn-insta, .btn-wpp {
-    padding: 12px 25px;
+.social-btn {
+    padding: 10px 20px;
     border-radius: 50px;
     text-decoration: none;
     color: white;
     font-weight: 700;
     display: flex;
     align-items: center;
-    gap: 10px;
-    transition: 0.3s;
+    gap: 8px;
 }
 
-.btn-insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-.btn-wpp { background-color: var(--wpp); }
+.insta { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
+.wpp { background-color: var(--wpp); }
 
-.btn-insta:hover, .btn-wpp:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+.phone-info { font-weight: 700; color: var(--cyan); font-size: 1.1rem; }
 
-.phone-display { font-size: 1.2rem; font-weight: 700; color: var(--cyan); }
-
-/* Ajuste para Celular */
-@media (max-width: 850px) {
+@media (max-width: 900px) {
     .main-content { grid-template-columns: 1fr; }
     .services-grid { grid-template-columns: 1fr; }
-    .visual-side { display: none; }
-    .footer { flex-direction: column; text-align: center; }
+    .visual-section { display: none; }
+    .contact-row { justify-content: center; }
 }
