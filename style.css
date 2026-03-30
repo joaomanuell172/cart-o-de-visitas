@@ -25,14 +25,14 @@ body {
 }
 
 .glass-container {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(0, 229, 255, 0.2);
-    border-radius: 20px;
+    border-radius: 25px;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px;
     padding: 40px;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
 }
 
 header { text-align: center; margin-bottom: 40px; }
@@ -40,69 +40,67 @@ header { text-align: center; margin-bottom: 40px; }
 .logo {
     font-family: 'Orbitron', sans-serif;
     font-size: clamp(2rem, 5vw, 3.5rem);
-    letter-spacing: 6px;
-    text-shadow: 0 0 15px var(--cyan);
+    letter-spacing: 8px;
+    text-shadow: 0 0 20px var(--cyan);
 }
 
 .subtitle-wrapper {
     display: inline-block;
     border-bottom: 2px solid var(--cyan);
-    padding: 0 20px 5px;
+    padding: 5px 30px;
+    margin-top: 10px;
 }
 
-.subtitle { color: var(--cyan); font-weight: 600; text-transform: uppercase; letter-spacing: 3px; }
+.subtitle { color: var(--cyan); font-weight: 600; text-transform: uppercase; letter-spacing: 4px; }
 
-/* Grid Alinhado para dois serviços lado a lado */
-.main-content {
+/* Grid de 4 Colunas */
+.services-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.category-box {
+    background: rgba(255, 255, 255, 0.04);
+    padding: 25px 15px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+.category-box:hover {
+    transform: translateY(-10px);
+    border-color: var(--cyan);
+    background: rgba(0, 229, 255, 0.1);
+}
+
+.category-icon {
+    font-size: 2.5rem;
+    color: var(--cyan);
+    margin-bottom: 15px;
 }
 
 .category-box h3 {
     font-size: 1.1rem;
-    color: var(--cyan);
+    color: #fff;
     margin-bottom: 15px;
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
 .category-box .item {
-    background: rgba(255, 255, 255, 0.04);
+    font-size: 0.85rem;
+    color: #bbb;
     margin-bottom: 8px;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    border-left: 3px solid transparent;
-    transition: 0.3s;
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.category-box .item:hover {
-    border-left: 3px solid var(--cyan);
-    background: rgba(0, 229, 255, 0.1);
-    transform: translateX(5px);
-}
-
-.visual-section { text-align: center; }
-
-.main-icon {
-    font-size: 120px;
-    color: var(--cyan);
-    filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.3));
-    animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-
+/* Rodapé */
 .footer {
     margin-top: 40px;
     padding-top: 25px;
@@ -117,6 +115,8 @@ header { text-align: center; margin-bottom: 40px; }
     gap: 20px;
 }
 
+.social-group { display: flex; gap: 15px; }
+
 .social-btn {
     padding: 10px 20px;
     border-radius: 50px;
@@ -126,6 +126,7 @@ header { text-align: center; margin-bottom: 40px; }
     display: flex;
     align-items: center;
     gap: 8px;
+    font-size: 0.9rem;
 }
 
 .insta { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
@@ -133,9 +134,12 @@ header { text-align: center; margin-bottom: 40px; }
 
 .phone-info { font-weight: 700; color: var(--cyan); font-size: 1.1rem; }
 
-@media (max-width: 900px) {
-    .main-content { grid-template-columns: 1fr; }
+/* Responsividade */
+@media (max-width: 1100px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
     .services-grid { grid-template-columns: 1fr; }
-    .visual-section { display: none; }
     .contact-row { justify-content: center; }
 }
