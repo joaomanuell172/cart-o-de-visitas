@@ -17,27 +17,16 @@
 
 
 body {
-
     background-color: var(--dark);
-
     font-family: 'Poppins', sans-serif;
-
     color: white;
-
-    min-height: 100vh;
-
+    min-height: 100vh; /* Garante que o corpo tenha a altura total da tela */
     display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
+    justify-content: center; /* Centraliza na horizontal */
+    align-items: center;     /* Centraliza na vertical (PUXA PARA O MEIO) */
     padding: 20px;
-
     overflow-x: hidden;
-
 }
-
 
 
 .bg-glow {
