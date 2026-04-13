@@ -151,3 +151,8 @@ header { text-align: center; margin-bottom: 40px; }
     .contact-row { justify-content: center; text-align: center; }
     .glass-container { padding: 25px; }
 }
+
+header{
+    text-aling: center;
+    margin-bottom: 20px;
+}
